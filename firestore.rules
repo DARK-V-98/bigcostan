@@ -1,0 +1,91 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isRole(role) {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == role;
+    }
+    
+    function isOneOfRoles(roles) {
+      let userRole = get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+      return userRole in roles;
+    }
+    
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    match /users/{userId} {
+      // Allow users to read their own data, and admins/devs to read any user data
+      allow read: if request.auth.uid == userId || isOneOfRoles(['admin', 'developer']);
+      // Allow users to create their own document, and update their own document
+      // Admins/devs can update any user document
+      allow write: if request.auth.uid == userId || isOneOfRoles(['admin', 'developer']);
+    }
+
+    match /projectCategories/{docId} {
+      allow read: if true; // Publicly readable
+      allow write: if isSignedIn() && isOneOfRoles(['admin', 'developer']);
+    }
+
+    match /projects/{docId} {
+      allow read: if true; // Publicly readable
+      allow write: if isSignedIn() && isOneOfRoles(['admin', 'developer']);
+    }
+    
+    match /homeProductCategories/{docId} {
+      allow read: if true; // Publicly readable
+      allow write: if isSignedIn() && isOneOfRoles(['admin', 'developer']);
+    }
+
+    match /homeProducts/{docId} {
+      allow read: if true; // Publicly readable
+      allow write: if isSignedIn() && isOneOfRoles(['admin', 'developer']);
+    }
+
+    match /propertyCategories/{docId} {
+      allow read: if true; // Publicly readable
+      allow write: if isSignedIn() && isOneOfRoles(['admin', 'developer', 'agent']);
+    }
+
+    match /properties/{docId} {
+      allow read: if true; // Publicly readable
+      allow write: if isSignedIn() && isOneOfRoles(['admin', 'developer', 'agent']);
+    }
+
+    match /directorEvents/{docId} {
+        allow read: if true;
+        allow write: if isSignedIn() && isOneOfRoles(['admin', 'developer']);
+    }
+    
+    match /pantryDesigns/{docId} {
+        allow read: if true;
+        allow write: if isSignedIn() && isOneOfRoles(['admin', 'developer']);
+    }
+
+    match /contactSubmissions/{docId} {
+        allow create;
+        allow read, update, delete: if isSignedIn() && isOneOfRoles(['admin', 'developer', 'messages']);
+    }
+    
+    match /testimonials/{docId} {
+      allow read: if true;
+      allow create: if isSignedIn();
+      allow update, delete: if isSignedIn() && isOneOfRoles(['admin', 'developer']);
+    }
+    
+    match /propertySubmissions/{docId} {
+      allow read, write: if isSignedIn() && (isOneOfRoles(['admin', 'developer', 'agent']) || request.auth.uid == resource.data.userId);
+    }
+    
+    match /chats/{chatId} {
+       allow read, write: if isSignedIn() && (isOneOfRoles(['admin', 'developer', 'agent']) || request.auth.uid == resource.data.userId);
+       
+       match /messages/{messageId} {
+         allow read, write: if isSignedIn() && (isOneOfRoles(['admin', 'developer', 'agent']) || request.auth.uid == get(/databases/$(database)/documents/chats/$(chatId)).data.userId);
+       }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Helper function to check roles
+    function isDeveloper(userId) {
+      return get(/databases/$(database)/documents/users/$(userId)).data.email == 'thimira.vishwa2003@gmail.com';
+    }
+    
+    function isAdmin(userId) {
+      return get(/databases/$(database)/documents/users/$(userId)).data.role == 'admin';
+    }
+
+    function isPrivilegedUser(userId) {
+        return request.auth != null && (isDeveloper(userId) || isAdmin(userId));
+    }
+
+    // Allow public read access to all files.
+    // This is necessary for website visitors to see project and event images.
+    match /{allPaths=**} {
+      allow read: if true;
+    }
+
+    // Allow writes (uploads/deletes) only for authenticated admins and developers
+    // inside the 'projects' and 'directorEvents' folders.
+    match /projects/{allPaths=**} {
+      allow write: if isPrivilegedUser(request.auth.uid);
+    }
+    
+    match /directorEvents/{allPaths=**} {
+       allow write: if isPrivilegedUser(request.auth.uid);
+    }
+  }
+}
