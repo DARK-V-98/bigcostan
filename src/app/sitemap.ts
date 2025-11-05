@@ -9,6 +9,9 @@ const staticPages = [
   '/services/home-solutions',
   '/services/tech',
   '/projects',
+  '/properties',
+  '/homes',
+  '/homes/pantry-designs',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
