@@ -1,75 +1,116 @@
-# Website Architecture & Feature Blueprint: Big Costa
+# Project Blueprint: Big Costa Conglomerate Website
 
-This document provides a technical overview of the Big Costa website, detailing its architecture, technology stack, and core features.
+This document provides a comprehensive technical overview of the Big Costa website. It details the technology stack, project structure, key features, and overall architecture.
 
-## 1. Project Overview
+## 1. Technology Stack
 
-The Big Costa website is a modern, full-stack web application designed to serve as the digital presence for a diversified conglomerate with divisions in Construction, Home Solutions, Properties, and Technology. It functions as a corporate brochure, project showcase, and a client interaction portal with a secure, role-based administrative dashboard.
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) with CSS Variables for theming.
+- **UI Components:** [ShadCN/UI](https://ui.shadcn.com/) - A collection of beautifully designed, accessible, and reusable components.
+- **Backend & Database:** [Firebase](https://firebase.google.com/)
+  - **Authentication:** Manages user login, registration, and roles.
+  - **Firestore:** A NoSQL database for storing all dynamic content (projects, users, testimonials, etc.).
+  - **Storage:** Used for hosting all user-uploaded images and files.
+- **Form Management:** [React Hook Form](https://react-hook-form.com/) with [Zod](https://zod.dev/) for validation.
+- **Deployment:** Configured for a standard Node.js environment, compatible with platforms like Vercel or Firebase App Hosting.
 
-## 2. Technology Stack
+---
 
-The application is built on a modern, robust, and scalable technology stack:
+## 2. Project Structure
 
--   **Framework**: [Next.js](https://nextjs.org/) (with App Router) - For server-rendered React applications, enabling excellent performance and SEO.
--   **UI Library**: [React](https://react.dev/) - For building dynamic and interactive user interfaces.
--   **Styling**: [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapid UI development.
--   **Component Library**: [ShadCN/UI](https://ui.shadcn.com/) - A collection of beautifully designed, accessible, and reusable components.
--   **Backend as a Service (BaaS)**: [Firebase](https://firebase.google.com/) - Used for authentication, database, and file storage.
--   **Form Management**: [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/) - For robust and type-safe form handling and validation.
+The project follows a standard Next.js App Router structure.
 
-## 3. Core Features
+```
+.
+├── src/
+│   ├── app/                # Main application routes
+│   │   ├── (public_routes) # e.g., /, /about-us, /projects
+│   │   ├── dashboard/      # Protected routes for content management
+│   │   └── layout.tsx      # Root layout with providers
+│   ├── components/
+│   │   ├── layout/         # Reusable layout components (Header, Footer)
+│   │   ├── sections/       # Major homepage sections (Hero, Services, etc.)
+│   │   └── ui/             # ShadCN UI components
+│   ├── context/            # React Context providers (Auth, Theme)
+│   ├── lib/                # Utility functions and Firebase configuration
+│   └── hooks/              # Custom React hooks
+├── public/                 # Static assets (images, videos, PDFs)
+└── tailwind.config.ts    # Tailwind CSS configuration
+```
 
-### 3.1. Public-Facing Website
+---
 
--   **Dynamic Homepage**: Features an animated hero section with images pulled from Firestore, showcasing featured projects.
--   **Multi-Divisional Service Pages**: Dedicated, styled pages for each company division (Construction, Homes, Properties, Tech) to detail their offerings.
--   **Project & Portfolio Galleries**:
-    -   **/projects**: A paginated gallery of all construction project images.
-    -   **/homes**: A filterable gallery of home products (e.g., pantry cupboards).
-    -   **/properties**: A searchable and filterable gallery for real estate listings.
--   **Dynamic SEO**:
-    -   **`sitemap.ts`**: Automatically generates a sitemap for better search engine indexing.
-    -   **`robots.ts`**: Provides clear crawling instructions to search engine bots.
-    -   **Page-Specific Metadata**: Each page has unique titles and descriptions for improved search rankings.
-    -   **Structured Data (JSON-LD)**: The homepage includes schema markup to help Google understand the business details, which can lead to rich search results.
--   **Contact Form**: A fully functional contact form that saves submissions directly to Firestore for administrative review.
--   **Testimonial System**: Displays client testimonials from Firestore and allows logged-in users to submit their own.
+## 3. Pages and Routing
 
-### 3.2. User Authentication & Authorization
+The website is divided into public-facing pages and a protected dashboard for administration.
 
--   **Authentication**: Secure user login and registration system using Firebase Authentication, supporting both email/password and Google Sign-In.
--   **Role-Based Access Control (RBAC)**: A sophisticated permission system controls access to the dashboard.
-    -   **User**: Standard access, can submit properties and testimonials.
-    -   **Agent**: Can manage property listings and submissions.
-    -   **Admin**: Full access to all dashboard features.
-    -   **Developer**: Full access, with some special permissions.
-    -   *Custom Permissions*: Fine-grained access can be granted to users and agents on the "Manage Roles" page.
+### 3.1. Public Pages
 
-### 3.3. Administrative Dashboard (`/dashboard`)
+-   **`/` (Homepage)**: The main landing page that introduces all core divisions of the company. It features a hero section, company summary, service overview, project showcase, testimonials, and a contact form.
+-   **`/about-us`**: Provides detailed information about the company's history, mission, vision, and showcases key business partners with embedded videos and downloadable profiles.
+-   **`/services/construction`**: A dedicated page listing all construction-related services, from general contracting to specialized trades.
+-   **`/services/home-solutions`**: Details the offerings of the "Big Costa Homes" division, including custom pantry cupboards and interior design.
+-   **`/services/tech`**: Outlines the product categories for the "Big Costa Tech" retail division.
+-   **`/projects`**: A full gallery showcasing all uploaded project images, with pagination for easy browsing.
+-   **`/properties`**: A filterable listing page for all real estate properties, allowing users to search and view details.
+-   **`/homes`**: A browsable catalog of home products, filterable by category.
+-   **`/auth`**: A single page for user login and registration, with support for email/password and Google social sign-in.
 
-A secure, role-based area for managing the website's content and user interactions.
+### 3.2. Protected Dashboard
 
--   **Role Management**: Admins can view all users and assign roles (`user`, `agent`, `admin`) and grant specific permissions.
--   **Content Management**:
-    -   **Projects**: Upload new projects, manage categories/sub-categories, and edit existing project details.
-    -   **Home Products**: Add/edit product categories and manage individual home solution products.
-    -   **Properties**: Manage property categories and individual property listings with detailed fields (price, location, bedrooms, etc.).
-    -   **Events & Designs**: Upload images for special events and pantry designs.
--   **Message Center**:
-    -   **Contact Messages**: View, read, and delete messages submitted through the public contact form.
-    -   **Property Submissions & Chat**: A dedicated inbox to review property submissions from users. Each submission automatically creates a private chat room between the user and the administrative team (agents/admins).
+-   **`/dashboard`**: The central hub for all content management, accessible only to authenticated users with appropriate permissions.
+-   **`/dashboard/roles`**: Allows `admin` and `developer` users to manage user roles and fine-grained permissions.
+-   **`/dashboard/messages`**: An inbox for viewing and managing messages submitted through the public contact form.
+-   **`/dashboard/events`**: A section for managing special event images displayed on the site.
+-   **`/dashboard/submissions`**: An interface for agents and admins to review and chat with users about their property submissions.
+-   **`/dashboard/projects/*`**: A group of pages for managing project categories, uploading new projects, and editing existing ones.
+-   **`/dashboard/homes/*`**: A group of pages for managing home product categories and the products themselves.
+-   **`/dashboard/properties/*`**: A group of pages for managing property categories and individual property listings.
 
-## 4. Backend & Database (Firebase)
+---
 
--   **Firestore (Database)**: A NoSQL database used to store all dynamic content. Key collections include:
-    -   `users`: Stores user profiles, roles, and permissions.
-    -   `projects`, `homeProducts`, `properties`: Store listings for the respective website sections.
-    -   `projectCategories`, `homeProductCategories`, `propertyCategories`: Manage the categories used for filtering.
-    -   `contactSubmissions`: Stores messages from the contact form.
-    -   `testimonials`: Stores client testimonials.
-    -   `propertySubmissions`: Stores property listings submitted by users for review.
-    -   `chats`: Manages the real-time chat conversations related to property submissions.
--   **Firebase Storage**: Used for securely storing all user-uploaded images for projects, properties, and chat attachments.
--   **Security Rules**: Firestore and Storage rules are configured to protect data integrity and ensure that only authorized users can read or write specific data. For example, only admins/developers can manage roles, while agents can manage property data.
+## 4. Styling and UI
 
-This architecture creates a powerful, flexible, and maintainable website that effectively serves the diverse needs of the Big Costa brand and its customers.
+-   **Theming**: The site uses a powerful theming system managed in `src/app/globals.css`. It leverages CSS variables to define multiple themes (`default`, `theme-tech`, `theme-orange-black`). The theme can be switched dynamically using the theme toggle in the header.
+-   **Component Library**: The UI is built with **ShadCN/UI**, providing a consistent and professional look and feel. All base components (buttons, cards, forms, etc.) are located in `src/components/ui`.
+-   **Layout**: The main structure is defined by the `Header` and `Footer` components, which are shared across all pages. The homepage is composed of modular sections found in `src/components/sections`, such as:
+    -   `Hero.tsx`: The main banner with a dynamic background.
+    -   `WhoWeAre.tsx`: A brief company introduction.
+    -   `VisionMission.tsx`: Highlights the company's core values.
+    -   `Services.tsx`: Showcases the main business divisions.
+    -   `Projects.tsx`: A curated gallery of featured projects.
+    -   `Testimonials.tsx`: A carousel of client feedback.
+    -   `Contact.tsx`: A contact form and information section.
+-   **Animations**: Subtle animations are implemented using `AnimateOnScroll.tsx` to provide a smooth, engaging user experience as they scroll through pages.
+
+---
+
+## 5. Key Features & Architecture
+
+### 5.1. Authentication and Role-Based Access Control (RBAC)
+
+-   **Firebase Authentication** is used for user management.
+-   The `AuthProvider` (`src/context/auth-provider.tsx`) is a critical component that wraps the entire application. It manages the user's session and retrieves their assigned `role` and `permissions` from Firestore.
+-   The `role` (`admin`, `developer`, `agent`, `user`) provides broad access levels, while `permissions` (e.g., `canEditProjects`, `canViewMessages`) allow for fine-grained control over what a user can see and do in the dashboard.
+-   This system is secure, as Firestore Security Rules on the backend enforce these roles and permissions for all database operations.
+
+### 5.2. Content Management System (Dashboard)
+
+-   The dashboard is a complete, custom-built CMS that allows authorized users to manage all dynamic content on the website without touching any code.
+-   **Data Management**: Each section of the dashboard (Projects, Homes, Properties, etc.) allows for full CRUD (Create, Read, Update, Delete) operations.
+-   **Image Uploads**: All image uploads are handled securely through Firebase Storage. The forms manage the upload process and then store the resulting image URL in Firestore.
+
+### 5.3. Dynamic SEO and Metadata
+
+-   The website is optimized for search engines.
+-   **`sitemap.ts`**: Automatically generates a `sitemap.xml` file that lists all important pages, helping Google discover and index the site content.
+-   **`robots.ts`**: Provides clear crawling instructions to search engine bots.
+-   **Page-Specific Metadata**: Each page has unique and descriptive `title` and `description` tags to improve search ranking for relevant keywords.
+-   **Structured Data (JSON-LD)**: The homepage includes structured data to help Google understand the site as a business entity, which can result in enhanced search result listings.
+
+### 5.4. Property Submission & Chat System
+
+-   **Submission Form**: Authenticated users can submit their properties for sale through a dedicated form. This form uploads property details and images.
+-   **Chat Creation**: Upon submission, a new "chat room" is automatically created in Firestore, linking the user, their submission, and company agents.
+-   **Real-time Chat**: Both the user (in their "My Chats" page) and the dashboard users (in "Submissions") can communicate in real-time through a dedicated chat interface. The system tracks read/unread status for messages.
