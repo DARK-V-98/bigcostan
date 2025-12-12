@@ -106,7 +106,7 @@ export default function Contact() {
                 </div>
                 <div className="flex items-start gap-4">
                   <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
-                  <span>276/16 Weralugaha Landa Thewatta Road Ragama Sri Lanka</span>
+                  <span>No. 33 - Level 1, Parkland Building 02, Colombo 02 000</span>
                 </div>
               </div>
             </div>

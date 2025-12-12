@@ -23,8 +23,10 @@ const jsonLd: WithContext<HomeAndConstructionBusiness> = {
   'priceRange': '$$',
   'address': {
     '@type': 'PostalAddress',
-    'streetAddress': '276/16 Weralugaha Landa Thewatta Road',
-    'addressLocality': 'Ragama',
+    'streetAddress': 'No. 33 - Level 1, Parkland Building 02',
+    'addressLocality': 'Colombo',
+    'addressRegion': 'Western Province',
+    'postalCode': '00200',
     'addressCountry': 'LK'
   },
   'sameAs': [
@@ -34,8 +36,8 @@ const jsonLd: WithContext<HomeAndConstructionBusiness> = {
   ],
   'geo': {
     '@type': 'GeoCoordinates',
-    'latitude': 7.0255, // Approximate latitude for Ragama
-    'longitude': 79.9231 // Approximate longitude for Ragama
+    'latitude': 6.9271, // Approximate latitude for Colombo
+    'longitude': 79.8612 // Approximate longitude for Colombo
   },
   'servesCuisine': '',
   'openingHoursSpecification': [
