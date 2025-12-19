@@ -13,7 +13,7 @@ import AnimateOnScroll from '@/components/layout/animate-on-scroll';
 const professionals = [
     {
         name: 'Lakshman De Costa',
-        title: 'Chairman',
+        title: 'Founder/Chairman',
         icon: <User className="h-10 w-10 text-primary" />,
         description: "Leading the company with a vision for excellence and a commitment to quality across all divisions. With decades of experience in the industry, the Chairman guides the strategic direction of Big Costa, ensuring sustainable growth and client satisfaction.",
         qualifications: [],
