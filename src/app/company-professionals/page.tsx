@@ -22,9 +22,9 @@ const professionals = [
     },
     {
         name: 'Lahiruka Vindani Weeraratne',
-        title: 'Consultant | Attorney-at-Law | Company Secretary',
+        title: 'Corporate Company Secretary',
         icon: <Shield className="h-10 w-10 text-primary" />,
-        description: "Lahiruka is a qualified legal professional and certified corporate company secretary with expertise in corporate governance, compliance, and human resource management. She ensures the company’s legal and regulatory responsibilities are met with precision and integrity.",
+        description: "Attorney-at-Law | Company Secretary. Lahiruka is a qualified legal professional and certified company secretary with expertise in corporate governance, compliance, and human resource management. She ensures the company’s legal and regulatory responsibilities are met with precision and integrity.",
         qualifications: [
             "LL.B. from KDU",
             "Chartered Qualification in Human Resource Management",
