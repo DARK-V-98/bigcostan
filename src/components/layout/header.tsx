@@ -134,22 +134,22 @@ export default function Header() {
        <div className="bg-primary text-primary-foreground text-center p-2 text-sm font-medium">
          <CountdownTimer targetDate="2026-01-01T00:00:00" />
        </div>
-      <div className="container flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3 mr-4 overflow-hidden">
-          <Image src="/logobc.png" alt="Big Costa Logo" width={56} height={56} className="h-14 w-14 rounded-full flex-shrink-0" />
-          <span className="font-headline text-sm font-normal md:text-lg text-foreground md:whitespace-nowrap">Big Costa Construction</span>
+      <div className="container flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="flex items-center gap-2 mr-2 overflow-hidden">
+          <Image src="/logobc.png" alt="Big Costa Logo" width={40} height={40} className="h-10 w-10 rounded-full flex-shrink-0" />
+          <span className="font-headline text-sm font-normal md:text-base text-foreground whitespace-nowrap">Big Costa Construction</span>
         </Link>
         
-        <nav className="hidden md:flex items-center space-x-1 text-sm font-medium">
+        <nav className="hidden md:flex items-center space-x-1 text-xs font-medium">
           {navItems.map((item) => (
-            <Link key={item.name} href={item.href} className="transition-colors text-muted-foreground hover:text-primary uppercase px-3 py-2 rounded-md">
+            <Link key={item.name} href={item.href} className="transition-colors text-muted-foreground hover:text-primary uppercase px-2 py-2 rounded-md">
               {item.name}
             </Link>
           ))}
            <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:text-primary uppercase focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent">Homes</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:text-primary uppercase focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent text-xs">Homes</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                      <li className="row-span-3">
@@ -181,7 +181,7 @@ export default function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:text-primary uppercase focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent">Properties</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:text-primary uppercase focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent text-xs">Properties</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                      <li className="row-span-3">
@@ -213,7 +213,7 @@ export default function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:text-primary uppercase focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent">Services</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:text-primary uppercase focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent text-xs">Services</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] ">
                     {serviceComponents.map((component) => (
@@ -238,7 +238,7 @@ export default function Header() {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-           <Link href="/#contact" className="transition-colors text-muted-foreground hover:text-primary uppercase px-3 py-2 rounded-md">
+           <Link href="/#contact" className="transition-colors text-muted-foreground hover:text-primary uppercase px-2 py-2 rounded-md">
               Contact
             </Link>
         </nav>
