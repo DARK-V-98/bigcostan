@@ -32,7 +32,7 @@ const professionals = [
             "AA (US)",
             "DBA (MY) Reading"
         ],
-        imageUrl: "https://picsum.photos/seed/prof4/600/600",
+        imageUrl: "/ma.jpg",
         imgHint: "portrait woman business"
     },
     {
@@ -45,7 +45,7 @@ const professionals = [
             "Chartered Qualification in Human Resource Management",
             "Master’s degree (MSc) in Human Resource Management (UK)"
         ],
-        imageUrl: "https://picsum.photos/seed/prof2/600/600",
+        imageUrl: "/la.jpg",
         imgHint: "portrait woman professional"
     },
     {
@@ -58,7 +58,7 @@ const professionals = [
             "M.Sc. in Architecture",
             "Associate Member of the Sri Lanka Institute of Architects (SLIA)"
         ],
-        imageUrl: "https://picsum.photos/seed/prof3/600/600",
+        imageUrl: "/ca.jpg",
         imgHint: "portrait man architect"
     },
 ];
