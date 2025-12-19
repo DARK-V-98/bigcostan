@@ -24,7 +24,7 @@ const professionals = [
         name: 'Lahiruka Vindani Weeraratne',
         title: 'Corporate Company Secretary',
         icon: <Shield className="h-10 w-10 text-primary" />,
-        description: "Attorney-at-Law | Company Secretary. Lahiruka is a qualified legal professional and certified company secretary with expertise in corporate governance, compliance, and human resource management. She ensures the company’s legal and regulatory responsibilities are met with precision and integrity.",
+        description: "Attorney-at-Law | Company Secretary. Lahiruka is a qualified legal professional and certified company secretary with expertise in corporate governance, compliance, and human resource management. She holds an LL.B. from KDU, a Chartered Qualification in Human Resource Management, and a Master’s degree (MSc) in Human Resource Management (UK). She ensures the company’s legal and regulatory responsibilities are met with precision and integrity.",
         qualifications: [
             "LL.B. from KDU",
             "Chartered Qualification in Human Resource Management",
@@ -35,9 +35,9 @@ const professionals = [
     },
     {
         name: 'Chinthaka Kanchana Nikapitiya',
-        title: 'Architect (AIA - SL)',
+        title: 'Architect (AIA - SL) | Associate Member of SLIA',
         icon: <DraftingCompass className="h-10 w-10 text-primary" />,
-        description: "Chinthaka is a registered architect with over 18 years of experience in architectural design and construction. His work combines creative vision with technical excellence across residential, commercial, and public sector projects.",
+        description: "Chinthaka is a registered architect with over 18 years of experience in architectural design and construction. He holds a B.Sc. in Built Environment and an M.Sc. in Architecture, and is an Associate Member of the Sri Lanka Institute of Architects (SLIA). His work combines creative vision with technical excellence across residential, commercial, and public sector projects.",
         qualifications: [
             "B.Sc. in Built Environment",
             "M.Sc. in Architecture",
