@@ -39,6 +39,7 @@ import { type PropertyCategory } from '@/app/dashboard/properties/categories/pag
 const navItems = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about-us' },
+  { name: 'Professionals', href: '/company-professionals' },
   { name: 'Projects', href: '/projects' },
 ];
 

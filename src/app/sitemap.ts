@@ -5,6 +5,7 @@ import { type MetadataRoute } from 'next';
 const staticPages = [
   '/',
   '/about-us',
+  '/company-professionals',
   '/services/construction',
   '/services/home-solutions',
   '/services/tech',
