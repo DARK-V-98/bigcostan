@@ -21,6 +21,21 @@ const professionals = [
         imgHint: "portrait man"
     },
     {
+        name: 'Marie Shermila',
+        title: 'Chief Operating Officer',
+        icon: <Briefcase className="h-10 w-10 text-primary" />,
+        description: "As Chief Operating Officer, Marie Shermila oversees the company's daily operations and ensures that business strategies are executed efficiently. Her extensive management qualifications contribute to our operational excellence and strategic growth.",
+        qualifications: [
+            "MBA (Aus)",
+            "MBA (SZ)",
+            "MABE (UK)",
+            "AA (US)",
+            "DBA (MY) Reading"
+        ],
+        imageUrl: "https://picsum.photos/seed/prof4/600/600",
+        imgHint: "portrait woman business"
+    },
+    {
         name: 'Lahiruka Vindani Weeraratne',
         title: 'Corporate Company Secretary',
         icon: <Shield className="h-10 w-10 text-primary" />,
@@ -37,7 +52,7 @@ const professionals = [
         name: 'Chinthaka Kanchana Nikapitiya',
         title: 'Architect',
         icon: <DraftingCompass className="h-10 w-10 text-primary" />,
-        description: "Chinthaka is a registered architect with over 18 years of experience in architectural design and construction. He holds a B.Sc. in Built Environment and an M.Sc. in Architecture, and is an Associate Member of the Sri Lanka Institute of Architects (SLIA). His work combines creative vision with technical excellence across residential, commercial, and public sector projects.",
+        description: "Architect (AIA - SL) | Associate Member of SLIA. Chinthaka is a registered architect with over 18 years of experience in architectural design and construction. He holds a B.Sc. in Built Environment and an M.Sc. in Architecture, and is an Associate Member of the Sri Lanka Institute of Architects (SLIA). His work combines creative vision with technical excellence across residential, commercial, and public sector projects.",
         qualifications: [
             "B.Sc. in Built Environment",
             "M.Sc. in Architecture",
@@ -61,7 +76,7 @@ export default function CompanyProfessionalsPage() {
             </p>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
             {professionals.map((prof, index) => (
                 <AnimateOnScroll key={index} animationClasses="animate-in fade-in zoom-in-95 duration-500" className="h-full">
                     <Card className="h-full flex flex-col text-center rounded-2xl bg-card/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
