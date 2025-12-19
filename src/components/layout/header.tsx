@@ -34,6 +34,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Skeleton } from '@/components/ui/skeleton';
 import { type HomeProductCategory } from '@/app/dashboard/homes/categories/page';
 import { type PropertyCategory } from '@/app/dashboard/properties/categories/page';
+import CountdownTimer from '@/components/countdown-timer';
 
 
 const navItems = [
@@ -130,6 +131,9 @@ export default function Header() {
       "sticky top-0 z-50 w-full transition-all duration-300",
       scrolled ? "border-b border-border bg-background" : "bg-transparent"
     )}>
+       <div className="bg-primary text-primary-foreground text-center p-2 text-sm font-medium">
+         <CountdownTimer targetDate="2026-01-01T00:00:00" />
+       </div>
       <div className="container flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3 mr-4 overflow-hidden">
           <Image src="/logobc.png" alt="Big Costa Logo" width={56} height={56} className="h-14 w-14 rounded-full flex-shrink-0" />

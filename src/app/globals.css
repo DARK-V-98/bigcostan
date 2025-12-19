@@ -21,6 +21,29 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+/* Snowfall animation */
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10vh);
+  }
+  100% {
+    transform: translateY(110vh);
+  }
+}
+
+.snowflake {
+  position: fixed;
+  top: -10vh;
+  background: white;
+  border-radius: 50%;
+  animation-name: snowfall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+
 @layer base {
   :root {
     --background: 240 6% 10%;

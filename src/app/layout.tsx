@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { AuthProvider } from '@/context/auth-provider';
 import { ThemeProvider } from '@/context/theme-provider';
+import Snowfall from '@/components/snowfall';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bigcosta.lk'), // Replace with your actual domain
@@ -62,6 +63,7 @@ export default function RootLayout({
           storageKey="bigcosta-theme"
         >
           <AuthProvider>
+            <Snowfall />
             {children}
           </AuthProvider>
         </ThemeProvider>
