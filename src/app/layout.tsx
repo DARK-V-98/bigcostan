@@ -48,6 +48,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const showHolidayFeatures = new Date() < new Date('2026-01-01');
+
   return (
     <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
       <head>
@@ -63,7 +65,7 @@ export default function RootLayout({
           storageKey="bigcosta-theme"
         >
           <AuthProvider>
-            <Snowfall />
+            {showHolidayFeatures && <Snowfall />}
             {children}
           </AuthProvider>
         </ThemeProvider>

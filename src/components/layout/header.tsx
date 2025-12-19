@@ -78,8 +78,11 @@ export default function Header() {
   const [homeCategories, setHomeCategories] = useState<HomeProductCategory[]>([]);
   const [propertyCategories, setPropertyCategories] = useState<PropertyCategory[]>([]);
   const { theme, setTheme } = useTheme();
+  const [showHolidayFeatures, setShowHolidayFeatures] = useState(false);
 
   useEffect(() => {
+    setShowHolidayFeatures(new Date() < new Date('2026-01-01'));
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
@@ -131,9 +134,11 @@ export default function Header() {
       "sticky top-0 z-50 w-full transition-all duration-300",
       scrolled ? "border-b border-border bg-background" : "bg-transparent"
     )}>
-       <div className="bg-primary text-primary-foreground text-center p-2 text-sm font-medium">
-         <CountdownTimer targetDate="2026-01-01T00:00:00" />
-       </div>
+       {showHolidayFeatures && (
+        <div className="bg-primary text-primary-foreground text-center p-2 text-sm font-medium">
+            <CountdownTimer targetDate="2026-01-01T00:00:00" />
+        </div>
+       )}
       <div className="container flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 mr-2 overflow-hidden">
           <Image src="/logobc.png" alt="Big Costa Logo" width={40} height={40} className="h-10 w-10 rounded-full flex-shrink-0" />
