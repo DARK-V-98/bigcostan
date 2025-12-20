@@ -1,7 +1,7 @@
 
 'use client';
 
-import { User, Shield, Briefcase, DraftingCompass } from 'lucide-react';
+import { User, Shield, Briefcase, DraftingCompass, Cpu } from 'lucide-react';
 import Image from 'next/image';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
@@ -34,6 +34,19 @@ const professionals = [
         ],
         imageUrl: "/ma.jpg",
         imgHint: "portrait woman business"
+    },
+    {
+        name: 'Vishwa Vidarshana',
+        title: 'Chief Technology Officer',
+        icon: <Cpu className="h-10 w-10 text-primary" />,
+        description: "Leads the company’s technology direction by managing systems, platforms, and security. Aligns technical solutions with business objectives and long-term growth.",
+        qualifications: [
+            "BSc (Hons) in Computer Science – UCSC",
+            "Oracle Database Management Certification",
+            "Ethical Hacking & Cyber Security Certification"
+        ],
+        imageUrl: "/va.jpg",
+        imgHint: "portrait man tech"
     },
     {
         name: 'Lahiruka Vindani Weeraratne',
@@ -76,7 +89,7 @@ export default function CompanyProfessionalsPage() {
             </p>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
             {professionals.map((prof, index) => (
                 <AnimateOnScroll key={index} animationClasses="animate-in fade-in zoom-in-95 duration-500" className="h-full">
                     <Card className="h-full flex flex-col text-center rounded-2xl bg-card/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
