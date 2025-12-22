@@ -74,6 +74,21 @@ const professionals = [
         imageUrl: "/ca.jpg",
         imgHint: "portrait man architect"
     },
+    {
+        name: 'Chandra Kumara',
+        title: 'Consultant Auditor',
+        icon: <Shield className="h-10 w-10 text-primary" />,
+        description: "As the Managing Partner of NHK Associates (Chartered Accountants), he provides professional Statutory and Management Auditing services, along with Tax Consultancy and Advisory services.",
+        qualifications: [
+            "FCA",
+            "MBA-USQ",
+            "ACMA",
+            "MCPM",
+            "QB Qualified Pro Advisor"
+        ],
+        imageUrl: "/nhk.png",
+        imgHint: "portrait man auditor"
+    },
 ];
 
 export default function CompanyProfessionalsPage() {
