@@ -76,7 +76,7 @@ const professionals = [
     },
     {
         name: 'Chandra Kumara',
-        title: 'Consultant Auditor',
+        title: 'Finance Consultant',
         icon: <Shield className="h-10 w-10 text-primary" />,
         description: "As the Managing Partner of NHK Associates (Chartered Accountants), he provides professional Statutory and Management Auditing services, along with Tax Consultancy and Advisory services.",
         qualifications: [
