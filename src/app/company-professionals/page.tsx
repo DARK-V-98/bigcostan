@@ -62,19 +62,6 @@ const professionals = [
         imgHint: "portrait woman professional"
     },
     {
-        name: 'Chinthaka Kanchana Nikapitiya',
-        title: 'Consultant Architect',
-        icon: <DraftingCompass className="h-10 w-10 text-primary" />,
-        description: "Architect (AIA - SL) | Associate Member of SLIA. Chinthaka is a registered architect with over 18 years of experience in architectural design and construction. He holds a B.Sc. in Built Environment and an M.Sc. in Architecture, and is an Associate Member of the Sri Lanka Institute of Architects (SLIA). His work combines creative vision with technical excellence across residential, commercial, and public sector projects.",
-        qualifications: [
-            "B.Sc. in Built Environment",
-            "M.Sc. in Architecture",
-            "Associate Member of the Sri Lanka Institute of Architects (SLIA)"
-        ],
-        imageUrl: "/ca.jpg",
-        imgHint: "portrait man architect"
-    },
-    {
         name: 'Chandra Kumara',
         title: 'Finance Consultant',
         icon: <Shield className="h-10 w-10 text-primary" />,
