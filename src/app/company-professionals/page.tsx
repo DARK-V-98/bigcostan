@@ -80,7 +80,7 @@ const professionals = [
         name: 'Charitha Wijesooriya',
         title: 'Project Consultant',
         icon: <HardHat className="h-10 w-10 text-primary" />,
-        description: "A seasoned project consultant guiding projects to success with strategic planning and oversight.",
+        description: "Highly experienced and disciplined Civil Engineering Officer with over 23 years of service in the Sri Lanka Navy, leveraging extensive expertise in construction, infrastructure development, and project management. Proven ability to lead teams, manage large-scale construction projects, and ensure quality, safety, and efficiency in all engineering operations.",
         qualifications: [
             "MBA (E-Governance)",
             "BSc (DS) in Civil",
