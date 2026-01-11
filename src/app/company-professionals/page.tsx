@@ -1,7 +1,7 @@
 
 'use client';
 
-import { User, Shield, Briefcase, DraftingCompass, Cpu } from 'lucide-react';
+import { User, Shield, Briefcase, DraftingCompass, Cpu, HardHat } from 'lucide-react';
 import Image from 'next/image';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
@@ -75,6 +75,28 @@ const professionals = [
         ],
         imageUrl: "/nhk.png",
         imgHint: "portrait man auditor"
+    },
+    {
+        name: 'Charitha Wijesooriya',
+        title: 'Project Consultant',
+        icon: <HardHat className="h-10 w-10 text-primary" />,
+        description: "A seasoned project consultant guiding projects to success with strategic planning and oversight.",
+        qualifications: [
+            "MBA (E-Governance)",
+            "BSc (DS) in Civil",
+            "AMIE (SL)",
+        ],
+        imageUrl: "/cw.png",
+        imgHint: "portrait man engineer"
+    },
+    {
+        name: 'Mohomed Fauzan',
+        title: 'Draftsmen/Designer',
+        icon: <DraftingCompass className="h-10 w-10 text-primary" />,
+        description: "NVQ Level 3 & Level 4 qualified Draughts Person with strong expertise in architectural drafting, 3D visualization, and building design. Skilled in AutoCAD, SketchUp, Revit, Lumion, and D5 for producing accurate council drawings, residential and multi-story building designs, and high-quality interior, exterior, and landscape renderings. Experienced in creating realistic images and creative architectural videos with a strong focus on detail and functionality.",
+        qualifications: [],
+        imageUrl: "/mf.png",
+        imgHint: "portrait man designer"
     },
 ];
 
