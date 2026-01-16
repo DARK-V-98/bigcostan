@@ -11,15 +11,9 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import Image from 'next/image';
 import { format } from 'date-fns';
 import { FileVideo, Image as ImageIcon } from 'lucide-react';
-import { type Metadata } from 'next';
+import { errorEmitter } from '@/lib/error-emitter';
+import { FirestorePermissionError, type SecurityRuleContext } from '@/lib/errors';
 
-
-// Note: Per-page metadata cannot be used in a client component.
-// It should be moved to a parent layout or a server component if dynamic metadata is needed.
-// export const metadata: Metadata = {
-//     title: 'Ongoing Projects | Big Costa',
-//     description: 'Follow the progress of our latest construction projects with regular updates, photos, and videos.',
-// };
 
 interface MediaItem {
     url: string;
@@ -48,8 +42,12 @@ export default function OngoingProjectsPage() {
       } as OngoingProject));
       setProjects(projectsData);
       setLoading(false);
-    }, (error) => {
-      console.error("Error fetching ongoing projects: ", error);
+    }, async (serverError) => {
+      const permissionError = new FirestorePermissionError({
+        path: 'ongoingProjects',
+        operation: 'list',
+      } satisfies SecurityRuleContext);
+      errorEmitter.emit('permission-error', permissionError);
       setLoading(false);
     });
 

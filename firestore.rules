@@ -89,7 +89,7 @@ service cloud.firestore {
        allow read, write: if isSignedIn() && (isOneOfRoles(['admin', 'developer', 'agent']) || request.auth.uid == resource.data.userId);
        
        match /messages/{messageId} {
-         allow read, write: if isSignedIn() && (isOneOfRoles(['admin', 'developer', 'agent']) || request.auth.uid == get(/databases/$(database)/documents/chats/$(chatId)).data.userId);
+         allow read, write: if isSignedIn() && (isOneOfRoles(['admin', 'developer', 'agent']) || get(/databases/$(database)/documents/chats/$(chatId)).data.userId);
        }
     }
   }
