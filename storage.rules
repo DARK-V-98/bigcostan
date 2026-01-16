@@ -24,13 +24,38 @@ service firebase.storage {
     }
 
     // Allow writes (uploads/deletes) only for authenticated admins and developers
-    // inside the 'projects' and 'directorEvents' folders.
+    // inside the specified folders.
     match /projects/{allPaths=**} {
       allow write: if isPrivilegedUser(request.auth.uid);
     }
     
     match /directorEvents/{allPaths=**} {
        allow write: if isPrivilegedUser(request.auth.uid);
+    }
+
+    match /ongoingProjects/{allPaths=**} {
+      allow write: if isPrivilegedUser(request.auth.uid);
+    }
+
+    match /homeProducts/{allPaths=**} {
+      allow write: if isPrivilegedUser(request.auth.uid);
+    }
+
+    match /properties/{allPaths=**} {
+      allow write: if isPrivilegedUser(request.auth.uid) || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'agent';
+    }
+
+    match /pantryDesigns/{allPaths=**} {
+      allow write: if isPrivilegedUser(request.auth.uid);
+    }
+
+    // Allow authenticated users to upload to their own submission folders
+    match /propertySubmissions/{userId}/{allPaths=**} {
+      allow write: if request.auth.uid == userId;
+    }
+
+    match /chatFiles/{chatId}/{allPaths=**} {
+      allow write: if request.auth != null; // Simple rule: any authenticated user can upload to chats. Could be tightened.
     }
   }
 }

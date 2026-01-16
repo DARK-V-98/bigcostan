@@ -41,6 +41,7 @@ const navItems = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about-us' },
   { name: 'Professionals', href: '/company-professionals' },
+  { name: 'Ongoing Projects', href: '/ongoing-projects' },
   { name: 'Projects', href: '/projects' },
 ];
 

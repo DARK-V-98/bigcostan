@@ -36,6 +36,7 @@ const mainNavItems: NavItem[] = [
     { name: 'Manage Roles', href: '/dashboard/roles', permission: 'roles' },
     { name: 'Contact Messages', href: '/dashboard/messages', permission: 'messages' },
     { name: 'Manage Events', href: '/dashboard/events', permission: 'events' },
+    { name: 'Ongoing Projects', href: '/dashboard/ongoing-projects', permission: 'projects' },
     { name: 'Property Submissions', href: '/dashboard/submissions', permission: 'submissions' },
 ];
 

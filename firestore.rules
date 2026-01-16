@@ -35,6 +35,11 @@ service cloud.firestore {
       allow write: if isSignedIn() && isOneOfRoles(['admin', 'developer']);
     }
     
+    match /ongoingProjects/{docId} {
+      allow read: if true; // Publicly readable
+      allow write: if isSignedIn() && isOneOfRoles(['admin', 'developer']);
+    }
+    
     match /homeProductCategories/{docId} {
       allow read: if true; // Publicly readable
       allow write: if isSignedIn() && isOneOfRoles(['admin', 'developer']);
