@@ -24,6 +24,11 @@ import { HomeProduct } from '../dashboard/homes/products/page';
 import { HomeProductCategory } from '../dashboard/homes/categories/page';
 import { Button } from '@/components/ui/button';
 
+interface MediaItem {
+    url: string;
+    type?: 'image' | 'video';
+}
+
 function HomesContent() {
   const [products, setProducts] = useState<HomeProduct[]>([]);
   const [categories, setCategories] = useState<HomeProductCategory[]>([]);
@@ -35,7 +40,8 @@ function HomesContent() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(categoryParam);
 
   const [isCarouselOpen, setIsCarouselOpen] = useState(false);
-  const [carouselImages, setCarouselImages] = useState<string[]>([]);
+  const [carouselMedia, setCarouselMedia] = useState<MediaItem[]>([]);
+  const [carouselStartIndex, setCarouselStartIndex] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState<HomeProduct | null>(null);
   const { setTheme } = useTheme();
 
@@ -93,7 +99,8 @@ function HomesContent() {
   };
   
   const openImageCarousel = (images: string[], startIndex: number) => {
-    setCarouselImages(images);
+    setCarouselMedia(images.map(url => ({ url, type: 'image' })));
+    setCarouselStartIndex(startIndex);
     setIsCarouselOpen(true);
   }
 
@@ -210,7 +217,8 @@ function HomesContent() {
        <ImageCarouselDialog
         open={isCarouselOpen}
         onOpenChange={setIsCarouselOpen}
-        images={carouselImages}
+        media={carouselMedia}
+        startIndex={carouselStartIndex}
       />
     </div>
   );

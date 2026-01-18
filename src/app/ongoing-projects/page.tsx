@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -13,6 +12,8 @@ import { format } from 'date-fns';
 import { FileVideo, Image as ImageIcon } from 'lucide-react';
 import { errorEmitter } from '@/lib/error-emitter';
 import { FirestorePermissionError, type SecurityRuleContext } from '@/lib/errors';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import ImageCarouselDialog from '@/components/image-carousel-dialog';
 
 
 interface MediaItem {
@@ -32,6 +33,9 @@ interface OngoingProject {
 export default function OngoingProjectsPage() {
   const [projects, setProjects] = useState<OngoingProject[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isCarouselOpen, setIsCarouselOpen] = useState(false);
+  const [carouselMedia, setCarouselMedia] = useState<MediaItem[]>([]);
+  const [carouselStartIndex, setCarouselStartIndex] = useState(0);
 
   useEffect(() => {
     const q = query(collection(db, 'ongoingProjects'), orderBy('createdAt', 'desc'));
@@ -53,6 +57,12 @@ export default function OngoingProjectsPage() {
 
     return () => unsubscribe();
   }, []);
+  
+  const openMediaCarousel = (media: MediaItem[], startIndex: number) => {
+    setCarouselMedia(media);
+    setCarouselStartIndex(startIndex);
+    setIsCarouselOpen(true);
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -99,30 +109,49 @@ export default function OngoingProjectsPage() {
                         {project.description && (
                             <p className="mb-6 text-muted-foreground">{project.description}</p>
                         )}
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            {project.media.map((item, index) => (
-                                <div key={index} className="relative aspect-square w-full overflow-hidden rounded-lg group">
-                                    {item.type === 'image' ? (
-                                        <Image
-                                            src={item.url}
-                                            alt={item.name}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    ) : (
-                                        <video
-                                            src={item.url}
-                                            controls
-                                            playsInline
-                                            className="w-full h-full object-cover"
-                                        />
-                                    )}
-                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                       {item.type === 'image' ? <ImageIcon className="h-8 w-8 text-white" /> : <FileVideo className="h-8 w-8 text-white" />}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                        <Carousel
+                            opts={{
+                                align: "start",
+                                loop: true,
+                            }}
+                            className="w-full"
+                        >
+                            <CarouselContent>
+                                {project.media.map((item, index) => (
+                                    <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                                        <div className="p-1">
+                                            <div 
+                                                className="relative aspect-square w-full overflow-hidden rounded-lg group cursor-pointer"
+                                                onClick={() => openMediaCarousel(project.media, index)}
+                                            >
+                                                {item.type === 'image' ? (
+                                                    <Image
+                                                        src={item.url}
+                                                        alt={item.name}
+                                                        fill
+                                                        className="object-cover"
+                                                    />
+                                                ) : (
+                                                    <video
+                                                        src={item.url}
+                                                        playsInline
+                                                        autoPlay
+                                                        loop
+                                                        muted
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                )}
+                                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                                   {item.type === 'image' ? <ImageIcon className="h-8 w-8 text-white" /> : <FileVideo className="h-8 w-8 text-white" />}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </CarouselItem>
+                                ))}
+                            </CarouselContent>
+                            <CarouselPrevious className="hidden sm:flex" />
+                            <CarouselNext className="hidden sm:flex" />
+                        </Carousel>
                     </CardContent>
                 </Card>
               ))
@@ -135,6 +164,12 @@ export default function OngoingProjectsPage() {
         </section>
       </main>
       <Footer />
+       <ImageCarouselDialog
+        open={isCarouselOpen}
+        onOpenChange={setIsCarouselOpen}
+        media={carouselMedia}
+        startIndex={carouselStartIndex}
+      />
     </div>
   );
 }

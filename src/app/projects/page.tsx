@@ -18,6 +18,11 @@ interface ProjectImage {
   projectImages: string[];
 }
 
+interface MediaItem {
+    url: string;
+    type?: 'image' | 'video';
+}
+
 const IMAGES_PER_PAGE = 15;
 
 export default function ProjectsPage() {
@@ -26,7 +31,7 @@ export default function ProjectsPage() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const [isCarouselOpen, setIsCarouselOpen] = useState(false);
-  const [carouselImages, setCarouselImages] = useState<string[]>([]);
+  const [carouselMedia, setCarouselMedia] = useState<MediaItem[]>([]);
   const [carouselStartIndex, setCarouselStartIndex] = useState(0);
 
   useEffect(() => {
@@ -64,7 +69,7 @@ export default function ProjectsPage() {
   
   const handleImageClick = (projectImages: string[], imageUrl: string) => {
     const startIndex = projectImages.findIndex(img => img === imageUrl);
-    setCarouselImages(projectImages);
+    setCarouselMedia(projectImages.map(url => ({ url, type: 'image' })));
     setCarouselStartIndex(startIndex > -1 ? startIndex : 0);
     setIsCarouselOpen(true);
   };
@@ -153,7 +158,7 @@ export default function ProjectsPage() {
        <ImageCarouselDialog
         open={isCarouselOpen}
         onOpenChange={setIsCarouselOpen}
-        images={carouselImages}
+        media={carouselMedia}
         startIndex={carouselStartIndex}
       />
     </div>
