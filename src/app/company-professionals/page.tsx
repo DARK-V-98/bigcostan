@@ -85,9 +85,9 @@ const professionals = [
     },
     {
         name: 'Thushitha Rubasinghe',
-        title: 'Recruitment Partner',
-        icon: <Handshake className="h-10 w-10 text-primary" />,
-        description: "Rubans Business Consultants - Our trusted recruitment partners, connecting us with top talent to build our exceptional team.",
+        title: 'Finance Consultant',
+        icon: <Shield className="h-10 w-10 text-primary" />,
+        description: "Rubans Business Consultants - Our trusted partners for financial consulting and advisory services.",
         qualifications: [
             "📞 Phone: +94 77 634 3599",
             "🌐 Website: https://rubansbusiness.lk",
@@ -133,7 +133,7 @@ export default function CompanyProfessionalsPage() {
                             <p className="text-muted-foreground text-sm">{prof.description}</p>
                             {prof.qualifications.length > 0 && (
                                 <div className="mt-4 text-left">
-                                    <h4 className="font-semibold text-foreground">Key Qualifications:</h4>
+                                    <h4 className="font-semibold text-foreground">Details:</h4>
                                     <ul className="mt-2 list-disc list-inside text-sm text-muted-foreground space-y-1">
                                         {prof.qualifications.map((q, i) => <li key={i}>{q}</li>)}
                                     </ul>
