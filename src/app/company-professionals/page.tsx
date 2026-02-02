@@ -1,7 +1,7 @@
 
 'use client';
 
-import { User, Shield, Briefcase, DraftingCompass, Cpu, HardHat, Handshake } from 'lucide-react';
+import { User, Shield, Briefcase, DraftingCompass, Cpu, HardHat, Handshake, Ruler } from 'lucide-react';
 import Image from 'next/image';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
@@ -84,9 +84,18 @@ const professionals = [
         imgHint: "portrait man designer"
     },
     {
+        name: 'R.M.Hansini Udesika Rajakaruna',
+        title: 'Quantity Surveyor',
+        icon: <Ruler className="h-10 w-10 text-primary" />,
+        description: "Successfully completed NVQ Level 5 in Construction Technology, NVQ Level 4 in Quantity Surveying Assistant and NVQ Level 2 in Draughtsperson(CAD Operater). Possess practical experience in quantity take-offs, cost estimation, site supervision, and coordination of construction activities and additionally expertise in Autocad and Sketchup. A disciplined, detail-oriented professional with a strong understanding of construction practices, and committed to contributing effectively while continuously developing skills within the construction industry.",
+        qualifications: [],
+        imageUrl: "/hs.png",
+        imgHint: "portrait woman quantity surveyor"
+    },
+    {
         name: 'Thushitha Rubasinghe',
         title: 'Finance Consultant',
-        icon: <Shield className="h-10 w-10 text-primary" />,
+        icon: <Handshake className="h-10 w-10 text-primary" />,
         description: "Rubans Business Consultants - Our trusted partners for financial consulting and advisory services.",
         qualifications: [
             "📞 Phone: +94 77 634 3599",
