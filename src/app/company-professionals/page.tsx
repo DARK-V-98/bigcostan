@@ -1,7 +1,7 @@
 
 'use client';
 
-import { User, Shield, Briefcase, DraftingCompass, Cpu, HardHat } from 'lucide-react';
+import { User, Shield, Briefcase, DraftingCompass, Cpu, HardHat, Handshake } from 'lucide-react';
 import Image from 'next/image';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
@@ -62,21 +62,6 @@ const professionals = [
         imgHint: "portrait woman professional"
     },
     {
-        name: 'Chandra Kumara',
-        title: 'Finance Consultant',
-        icon: <Shield className="h-10 w-10 text-primary" />,
-        description: "As the Managing Partner of NHK Associates (Chartered Accountants), he provides professional Statutory and Management Auditing services, along with Tax Consultancy and Advisory services.",
-        qualifications: [
-            "FCA",
-            "MBA-USQ",
-            "ACMA",
-            "MCPM",
-            "QB Qualified Pro Advisor"
-        ],
-        imageUrl: "/nhk.png",
-        imgHint: "portrait man auditor"
-    },
-    {
         name: 'Charitha Wijesooriya',
         title: 'Project Consultant',
         icon: <HardHat className="h-10 w-10 text-primary" />,
@@ -97,6 +82,20 @@ const professionals = [
         qualifications: [],
         imageUrl: "/mf.png",
         imgHint: "portrait man designer"
+    },
+    {
+        name: 'Thushitha Rubasinghe',
+        title: 'Recruitment Partner',
+        icon: <Handshake className="h-10 w-10 text-primary" />,
+        description: "Rubans Business Consultants - Our trusted recruitment partners, connecting us with top talent to build our exceptional team.",
+        qualifications: [
+            "📞 Phone: +94 77 634 3599",
+            "🌐 Website: https://rubansbusiness.lk",
+            "✉️ Email: rubansrcp@gmail.com",
+            "📍 Address: 82/11A, 3rd Baptist Avenue, Rawatawatte Road, Ratmalana"
+        ],
+        imageUrl: "/rb.png",
+        imgHint: "business partner portrait"
     },
 ];
 
