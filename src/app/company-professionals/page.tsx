@@ -6,7 +6,6 @@ import Image from 'next/image';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { type Metadata } from 'next';
 import AnimateOnScroll from '@/components/layout/animate-on-scroll';
 
 
@@ -60,6 +59,20 @@ const professionals = [
         ],
         imageUrl: "/la.jpg",
         imgHint: "portrait woman professional"
+    },
+    {
+        name: 'Samya Molligoda',
+        title: 'Chartered Architect',
+        icon: <DraftingCompass className="h-10 w-10 text-primary" />,
+        description: "Chartered Architect dedicated to sustainable & green design excellence connecting government and corporate worlds through proactive coordination and approachable teamwork.",
+        qualifications: [
+            "B.Arch",
+            "AIA(SL)",
+            "GREENSL@AP",
+            "BIM modeling and Revit 3D visualization (following)"
+        ],
+        imageUrl: "/sm.png",
+        imgHint: "portrait woman architect"
     },
     {
         name: 'Charitha Wijesooriya',
