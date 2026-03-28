@@ -1,7 +1,6 @@
-
 'use client';
 
-import { User, Shield, Briefcase, DraftingCompass, Cpu, HardHat, Handshake, Ruler } from 'lucide-react';
+import { User, Shield, Briefcase, DraftingCompass, Cpu, HardHat, Handshake, Ruler, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
@@ -46,6 +45,20 @@ const professionals = [
         ],
         imageUrl: "/va.jpg",
         imgHint: "portrait man tech"
+    },
+    {
+        name: 'Anjana Prabodhani',
+        title: 'Business Development Executive',
+        icon: <TrendingUp className="h-10 w-10 text-primary" />,
+        description: "Focused on identifying new business opportunities and building strategic partnerships. Anjana brings a diverse educational background in software engineering and hospitality management to drive the company's growth initiatives.",
+        qualifications: [
+            "Diploma in Software Engineering – Esoft Metro College",
+            "HND in Tourism and Hospitality Management – William Angliss Institute of SLIIT",
+            "Kg/ Swarna Jayanthi National College",
+            "G.C.E A/L (2022) & G.C.E O/L (2018)"
+        ],
+        imageUrl: "/anj.png",
+        imgHint: "portrait woman professional"
     },
     {
         name: 'Lahiruka Vindani Weeraratne',
