@@ -53,9 +53,7 @@ const professionals = [
         description: "Focused on identifying new business opportunities and building strategic partnerships. Anjana brings a diverse educational background in software engineering and hospitality management to drive the company's growth initiatives.",
         qualifications: [
             "Diploma in Software Engineering – Esoft Metro College",
-            "HND in Tourism and Hospitality Management – William Angliss Institute of SLIIT",
-            "Kg/ Swarna Jayanthi National College",
-            "G.C.E A/L (2022) & G.C.E O/L (2018)"
+            "HND in Tourism and Hospitality Management – William Angliss Institute of SLIIT"
         ],
         imageUrl: "/anj.png",
         imgHint: "portrait woman professional"
