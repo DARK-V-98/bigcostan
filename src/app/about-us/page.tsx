@@ -1,8 +1,7 @@
-
 'use client';
 
 import { useState } from 'react';
-import { Target, Eye, Download, FileText, Handshake, PlayCircle, Sofa } from 'lucide-react';
+import { Target, Eye, Download, FileText, Handshake, PlayCircle, Sofa, Award } from 'lucide-react';
 import Image from 'next/image';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
@@ -47,58 +46,80 @@ export default function AboutUsPage() {
             </div>
           </div>
           
-          <div className="mt-24 text-center">
-            <Card className="inline-block bg-card/50 rounded-2xl p-8">
+          <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="bg-card/50 rounded-2xl p-8 text-center flex flex-col justify-between">
               <CardHeader className="p-0">
                 <FileText className="h-12 w-12 mx-auto text-primary" />
-                <CardTitle className="font-headline text-3xl mt-4">Our Company Profile</CardTitle>
+                <CardTitle className="font-headline text-2xl mt-4">Company Profile</CardTitle>
               </CardHeader>
               <CardContent className="p-0 mt-4">
-                <p className="text-muted-foreground mb-6">
+                <p className="text-muted-foreground mb-6 text-sm">
                   Get an in-depth look at our work, capabilities, and company history.
                 </p>
-                <div className="flex flex-col sm:flex-row justify-center gap-4">
-                  <Button asChild size="lg" className="rounded-full">
+                <div className="flex flex-col gap-2">
+                  <Button asChild size="sm" className="rounded-full w-full">
                     <a href="/pro.pdf" target="_blank" rel="noopener noreferrer">
-                      <Eye className="mr-2" />
-                      View Profile
+                      <Eye className="mr-2 h-4 w-4" />
+                      View
                     </a>
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="rounded-full">
+                  <Button asChild variant="outline" size="sm" className="rounded-full w-full">
                     <a href="/pro.pdf" download="Big_Costa_Construction_Profile.pdf">
-                      <Download className="mr-2" />
-                      Download PDF
+                      <Download className="mr-2 h-4 w-4" />
+                      Download
                     </a>
                   </Button>
                 </div>
               </CardContent>
             </Card>
-          </div>
 
-          <div className="mt-24 text-center">
-            <Card className="inline-block bg-card/50 rounded-2xl p-8">
+            <Card className="bg-card/50 rounded-2xl p-8 text-center flex flex-col justify-between border-primary/20">
               <CardHeader className="p-0">
-                <Handshake className="h-12 w-12 mx-auto text-primary" />
-                <CardTitle className="font-headline text-3xl mt-4">International Business Ventured Partner</CardTitle>
-                <p className="mt-2 text-lg text-muted-foreground font-semibold">
-                    ANHUI FUHUANG ENGINEERING SCI.AND TECH
-                </p>
+                <Award className="h-12 w-12 mx-auto text-primary" />
+                <CardTitle className="font-headline text-2xl mt-4">ISO 9001:2015</CardTitle>
+                <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1">Certified</p>
               </CardHeader>
               <CardContent className="p-0 mt-4">
-                <p className="text-muted-foreground mb-6">
-                  View the profile of our esteemed international partner.
+                <p className="text-muted-foreground mb-6 text-sm">
+                  Quality Management System for Building Construction Works.
                 </p>
-                <div className="flex flex-col sm:flex-row justify-center gap-4">
-                  <Button asChild size="lg" className="rounded-full">
-                    <a href="/tp.pdf" target="_blank" rel="noopener noreferrer">
-                      <Eye className="mr-2" />
-                      View Profile
+                <div className="flex flex-col gap-2">
+                  <Button asChild size="sm" className="rounded-full w-full">
+                    <a href="/iso-2015.pdf" target="_blank" rel="noopener noreferrer">
+                      <Eye className="mr-2 h-4 w-4" />
+                      View
                     </a>
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="rounded-full">
+                  <Button asChild variant="outline" size="sm" className="rounded-full w-full">
+                    <a href="/iso-2015.pdf" download="ISO_9001_2015_Certificate.pdf">
+                      <Download className="mr-2 h-4 w-4" />
+                      Download
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/50 rounded-2xl p-8 text-center flex flex-col justify-between">
+              <CardHeader className="p-0">
+                <Handshake className="h-12 w-12 mx-auto text-primary" />
+                <CardTitle className="font-headline text-2xl mt-4">International Partner</CardTitle>
+              </CardHeader>
+              <CardContent className="p-0 mt-4">
+                <p className="text-muted-foreground mb-6 text-sm">
+                   Profile of ANHUI FUHUANG ENGINEERING SCI.AND TECH.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <Button asChild size="sm" className="rounded-full w-full">
+                    <a href="/tp.pdf" target="_blank" rel="noopener noreferrer">
+                      <Eye className="mr-2 h-4 w-4" />
+                      View
+                    </a>
+                  </Button>
+                  <Button asChild variant="outline" size="sm" className="rounded-full w-full">
                     <a href="/tp.pdf" download="ANHUI_FUHUANG_Profile.pdf">
-                      <Download className="mr-2" />
-                      Download PDF
+                      <Download className="mr-2 h-4 w-4" />
+                      Download
                     </a>
                   </Button>
                 </div>

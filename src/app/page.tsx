@@ -1,4 +1,3 @@
-
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import Hero from '@/components/sections/hero';
@@ -9,6 +8,7 @@ import Testimonials from '@/components/sections/testimonials';
 import Contact from '@/components/sections/contact';
 import AnimateOnScroll from '@/components/layout/animate-on-scroll';
 import VisionMission from '@/components/sections/vision-mission';
+import Awards from '@/components/sections/awards';
 import { type HomeAndConstructionBusiness, type WithContext } from 'schema-dts';
 
 
@@ -72,6 +72,9 @@ export default function Home() {
         </AnimateOnScroll>
         <AnimateOnScroll animationClasses="animate-in fade-in slide-in-from-top-16 duration-1000">
           <VisionMission />
+        </AnimateOnScroll>
+        <AnimateOnScroll animationClasses="animate-in fade-in zoom-in-95 duration-1000">
+          <Awards />
         </AnimateOnScroll>
         <AnimateOnScroll animationClasses="animate-in fade-in slide-in-from-bottom-16 duration-1000">
           <Services />
