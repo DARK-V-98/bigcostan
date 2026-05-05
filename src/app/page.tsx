@@ -23,10 +23,10 @@ const jsonLd: WithContext<HomeAndConstructionBusiness> = {
   'priceRange': '$$',
   'address': {
     '@type': 'PostalAddress',
-    'streetAddress': 'No. 33 - Level 1, Parkland Building 02',
-    'addressLocality': 'Colombo',
+    'streetAddress': '288/31A Samagipura',
+    'addressLocality': 'Ruhunupura',
     'addressRegion': 'Western Province',
-    'postalCode': '00200',
+    'postalCode': '10116',
     'addressCountry': 'LK'
   },
   'sameAs': [
@@ -36,8 +36,8 @@ const jsonLd: WithContext<HomeAndConstructionBusiness> = {
   ],
   'geo': {
     '@type': 'GeoCoordinates',
-    'latitude': 6.9271, // Approximate latitude for Colombo
-    'longitude': 79.8612 // Approximate longitude for Colombo
+    'latitude': 6.9271, // Approximate latitude
+    'longitude': 79.8612 // Approximate longitude
   },
   'servesCuisine': '',
   'openingHoursSpecification': [
