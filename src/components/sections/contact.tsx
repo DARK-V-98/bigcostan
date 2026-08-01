@@ -105,7 +105,7 @@ export default function Contact() {
                 </div>
                 <div className="flex items-start gap-4">
                   <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
-                  <span>288/31A Samagipura, Ruhunupura 10116</span>
+                  <span>276/16, Weralugahalanda, Tewatta Road,<br />Ragama,<br />Sri Lanka.</span>
                 </div>
               </div>
             </div>
